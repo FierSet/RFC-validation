@@ -1,0 +1,85 @@
+@model List<EmployeeModel>
+
+@{
+    ViewData["Title"] = "Save";
+}
+
+    <h1 class="display-4">List</h1>
+<form asp-action="List" asp-controller="EmployeeControl" method="post" value="">
+
+    <div class="mb-3">
+        <label>ID:</label><input name="ID" type="text" class="from-control" value="">
+    </div>
+
+    <div class="mb-3">
+        <label>RFC:</label><input name="Name" type="text" class="from-control" value="">
+    </div>
+
+    <div class="mb-3">
+        <label>Name:</label><input name="LastName" type="text" class="from-control" value="">
+    </div>
+
+    <div class="mb-3">
+        <label>Lastname: </label><input name="rfc" type="text" class="from-control" value="">
+    </div>
+
+    <div class="mb-3">
+        <label>BornDate: </label><input name="BornDate" type="date" class="from-control" value="">
+    </div>
+
+    <div class="mb-3">
+        <label>Status: 
+        </label><select  name="Status" id="select">
+            <option selected value="">-select status-</option>
+            <option value="0">NotSet</option>
+            <option value="1">Inactive</option>
+            <option value="2">Active</option>
+        </select>
+    </div>
+
+    <br/>
+    <br/>
+    <button type="submit">Search employee</button>
+    <br/>
+    <br/>
+    <a asp-action="Save" asp-controller="EmployeeControl">Go to Save</a>
+</form>
+
+<hr/>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>RFC</th>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>Born date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.RFC</td>
+                    <td>@item.Name</td>
+                    <td>@item.LastName</td>
+                    <td>@item.BornDate</td>
+                    <td>@item.Status</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No data available.</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
