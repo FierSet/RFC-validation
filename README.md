@@ -1,5 +1,5 @@
 "# RFC-validation" 
-this proyect search, create employee and verify the mexico ID RFC (Registro Federal de Contribuyentes) in asp.net mvc.
+this proyect search, create employee and verify the mexico ID RFC (Registro Federal de Contribuyentes) in asp.net mvc & SQlite.
 
 We can search employees:
 
